@@ -8,12 +8,10 @@ const initialGameBoard = [
 
 export default function GameBoard({ selectPlayer, turns }) {
   let gameBoard = initialGameBoard;
-  console.log(turns);
 
   for (const turn of turns) {
     const { square, player } = turn;
     const { row, cell } = square;
-    console.log(row && cell)
     gameBoard[row][cell] = player;
   }
 
