@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 const initialGameBoard = [
   [null, null, null],
@@ -7,6 +7,7 @@ const initialGameBoard = [
 ];
 
 export default function GameBoard({ selectPlayer, turns }) {
+
   let gameBoard = initialGameBoard;
 
   for (const turn of turns) {
@@ -23,7 +24,7 @@ export default function GameBoard({ selectPlayer, turns }) {
             {
               row.map((cell, cellIndex) => (
                 <li key={cellIndex}>
-                  <button onClick={() => selectPlayer(rowIndex, cellIndex)}>
+                  <button onClick={() => selectPlayer(rowIndex, cellIndex)} disabled={cell !== null}>
                     {cell}
                   </button>
                 </li>
